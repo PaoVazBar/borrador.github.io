@@ -3,30 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>Cómics - Mi Sitio Web</title>
+    <script>
+        // Lista de cómics (puedes agregar o quitar cómics según sea necesario)
+        const comics = [
+            { title: "Cómic 1", file: "comic-1.html" },
+            { title: "Cómic 2", file: "comic-2.html" },
+            { title: "Cómic 3", file: "comic-3.html" },
+            { title: "Cómic 4", file: "comic-4.html" },
+        ];
+
+        // Función para mostrar los últimos cómics
+        function displayLatestComics() {
+            const comicList = document.getElementById('comic-list');
+            // Limitar a los últimos 3 cómics
+            const latestComics = comics.slice(-3); 
+            latestComics.forEach(comic => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<a href="${comic.file}">${comic.title}</a>`;
+                comicList.appendChild(listItem);
+            });
+        }
+
+        // Ejecutar la función al cargar la página
+        window.onload = displayLatestComics;
+    </script>
 </head>
 <body>
     <header>
         <h1>Cómics</h1>
         <nav>
             <ul>
-                <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="../index.html">Español</a></li>
-                <li><a href="../../../en/comics/index.html">Comics (English)</a></li>
-                <li><a href="../../../fr/comics/index.html">Bandes dessinées (Français)</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="comic-1.html">Cómic 1</a></li>
+                <li><a href="comic-2.html">Cómic 2</a></li>
+                <li><a href="comic-3.html">Cómic 3</a></li>
+                <li><a href="comic-4.html">Cómic 4</a></li>
+                <li><a href="../tutoriales/index.html">Tutoriales</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
-        <h2>Lista de Cómics en Español</h2>
-        <p>Aquí puedes agregar tus cómics.</p>
+        <h2>Últimos Cómics</h2>
+        <ul id="comic-list">
+            <!-- Los cómics se insertarán aquí automáticamente -->
+        </ul>
     </main>
     
     <footer>
         <p>&copy; 2024 Mi Sitio Web</p>
     </footer>
-    <script src="../../../script.js"></script>
 </body>
 </html>
